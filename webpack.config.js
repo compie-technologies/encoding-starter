@@ -7,6 +7,7 @@ const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const path = require('path');
 const glob = require('glob');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const extractPlugin = new ExtractTextPlugin({
     publicPath: './dist/',
@@ -174,6 +175,6 @@ module.exports = {
         new WriteFilePlugin({
             test: /\.css$/,
         }),
-        new webpack.optimize.UglifyJsPlugin(),
+        new UglifyJsPlugin(),
     ],
 };

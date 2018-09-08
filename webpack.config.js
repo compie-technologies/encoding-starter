@@ -38,6 +38,7 @@ class CollectHtmlFiles {
 }
 
 module.exports = {
+    mode: 'development',
     entry: {
         'app': './src/js/app.js',
         'app-rtl': './src/styles/app-rtl.scss',
@@ -83,7 +84,7 @@ module.exports = {
                 exclude: /(node_modules|bower_components)/,
                 use: [
                     {
-                        loader: 'jshint-loader',
+                        loader: 'eslint-loader',
                     },
                 ]
             },
@@ -174,6 +175,5 @@ module.exports = {
         new WriteFilePlugin({
             test: /\.css$/,
         }),
-        new webpack.optimize.UglifyJsPlugin(),
     ],
 };
